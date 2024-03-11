@@ -10,7 +10,7 @@ console.log(`${chalk.magenta('STARTED:')} Started Bot`)
 // -----------------------------------------------------------------------------
 // Databases
 
-const postdb = new sqlite3.Database('frank.sqlite3', (err) => {
+const postdb = new sqlite3.Database('luc.sqlite3', (err) => {
     if (err) {
         return console.error(err.message);
     }
@@ -49,134 +49,26 @@ const postdb = new sqlite3.Database('frank.sqlite3', (err) => {
 
 const communities = [
     {
-        slug: 'godot',
-        short: 'Godot',
+        slug: 'linuxupskillchallenge',
+        short: 'Linux Upskill Challenge',
         instance: 'programming.dev',
         categories: [
-            'weekly_discussion',
-            'tutorial_tuesday',
-            'welcoming_wednesday',
-            'feedback_friday',
-            'screenshot_saturday',
-            'showcase_sunday',
-        ]
-    },
-    {
-        slug: 'gamedev',
-        short: 'GameDev',
-        instance: 'programming.dev',
-        categories: [
-            'weekly_discussion',
-            'feedback_friday',
-            'screenshot_saturday',
-        ]
-    },
-    {
-        slug: 'unreal_engine',
-        short: 'Unreal',
-        instance: 'programming.dev',
-        categories: [
-            'weekly_discussion',
-            'tutorial_tuesday',
-            'welcoming_wednesday',
-            'feedback_friday',
-            'screenshot_saturday',
-            'showcase_sunday',
-        ]
-    },
-    {
-        slug: 'unity',
-        short: 'Unity',
-        instance: 'programming.dev',
-        categories: [
-            'weekly_discussion',
-            'tutorial_tuesday',
-            'welcoming_wednesday',
-            'feedback_friday',
-            'screenshot_saturday',
-            'showcase_sunday',
+            'monthly_post',
         ]
     },
 ]
 
 const posts = [
     {
-        name: 'Weekly Discussion - %{WEEKLYDATE}',
+        name: 'Test Post',
         body: stripIndents`
-            Welcome to the %{COMSHORT} community's weekly discussion!
-
-            This is a place where you can do general chat in the community for things that might not deserve their own post.
+            This is a test post
             `,
-        category: 'weekly_discussion',
-        cron: '0 1 0 * * 1',
-        pin: true,
-        pin_length: 7,
-        pin_check: 'Weekly Discussion'
-    },
-    {
-        name: 'Tutorial Tuesday',
-        body: stripIndents`
-            Welcome to Tutorial Tuesday! This is a weekly thread where you can post any kind of tutorial for how to do things or request one from others.
-            
-            Text tutorials, video tutorials, image tutorials, linking to a post in the community, etc. are all allowed. If you feel it deserves its own post feel free to instead post it as a separate post and then link it here.
-            `,
-        category: 'tutorial_tuesday',
-        cron: '0 1 0 * * 2',
+        category: 'monthly_post',
+        cron: '0 19 ? * MON#2',
         pin: true,
         pin_length: 1,
-        pin_check: 'Tutorial Tuesday'
-    },
-    {
-        name: 'Welcoming Wednesday',
-        body: stripIndents`
-            Welcome to Welcoming Wednesday! This is a day all about helping new people in the community get started.
-
-            If you’re new feel free to post questions, post things that you’re struggling with, or introduce yourself to the community! 
-            `,
-        category: 'welcoming_wednesday',
-        cron: '0 1 0 * * 3',
-        pin: true,
-        pin_length: 1,
-        pin_check: 'Welcoming Wednesday'
-    },
-    {
-        name: 'Feedback Friday',
-        body: stripIndents`
-            Welcome to Feedback Friday! This is a day all about getting feedback on your projects.
-
-            Have a scene in your game that you want to know if it looks good? Have a mechanic prototype that you want tested? Want to know if your steam page is good? Or do you want feedback on some other part of your game? Feel free to post them below for others to give feedback!
-            `,
-        category: 'feedback_friday',
-        cron: '0 1 0 * * 5',
-        pin: true,
-        pin_length: 1,
-        pin_check: 'Feedback Friday'
-    },
-    {
-        name: 'Screenshot Saturday',
-        body: stripIndents`
-            Welcome to Screenshot Satuday!
-
-            This is a day all about showing off what you've been working on. Feel free to post screenshots, gifs, videos, etc. of your game or project.
-            `,
-        category: 'screenshot_saturday',
-        cron: '0 1 0 * * 6',
-        pin: true,
-        pin_length: 1,
-        pin_check: 'Screenshot Saturday'
-    },
-    {
-        name: 'Showcase Sunday',
-        body: stripIndents`
-            Welcome to Showcase Sunday!
-
-            Are you making anything in %{COMSHORT}? Feel free to discuss it below or show off your progress!
-            `,
-        category: 'showcase_sunday',
-        cron: '0 1 0 * * 0',
-        pin: true,
-        pin_length: 1,
-        pin_check: 'Showcase Sunday'
+        pin_check: 'Test Post'
     },
 ]
 
