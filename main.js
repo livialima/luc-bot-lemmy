@@ -65,7 +65,7 @@ const posts = [
             This is a test post
             `,
         category: 'monthly_post',
-        cron: '0 19 ? * MON#2',
+        cron: '0 19 11 3 *',
         pin: true,
         pin_length: 1,
         pin_check: 'Test Post'
